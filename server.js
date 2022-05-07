@@ -44,6 +44,18 @@ app.post('/explorers', async (req, res) => {
     return res.json({message});
 });
 
+app.post('/axolotls', async (req, res) => {
+    const axolotl = {
+        name: req.body.name,
+        lang: req.body.lang,
+        missionCommander: req.body.missionCommander,
+        enrollments: req.body.enrollements
+    };
+    const message = 'Explorer creado.';
+    await prisma.axolotl.create({data: axolotl});
+    return res.json({message});
+});
+
 app.put('/explorers/:id', async (req, res) => {
     const id = parseInt(req.params.id);
 
