@@ -3,47 +3,51 @@ const prisma = new PrismaClient();
 
 (async function main() {
   try {
-    const woopa = await prisma.explorer.upsert({
+    const axolotl = await prisma.axolotl.upsert({
       where: { name: 'Woopa' },
       update: {},
       create: {
         name: 'Woopa',
-				username: 'ajolonauta',
-				mission: 'Node'
+				lang: 'javascript',
+				missionCommander: 'Node',
+        enrollments: 1
       },
     });
 
-    const woopa1 = await prisma.explorer.upsert({
+    const axolotl1 = await prisma.axolotl.upsert({
       where: { name: 'Woopa1' },
       update: {},
       create: {
-        name: 'Woopa1',
-				username: 'ajolonauta1',
-				mission: 'Node'
+        name: 'Woopa 1',
+				lang: 'javascript',
+				missionCommander: 'Node',
+        enrollments: 1
       },
     });
 
-    const woopa2 = await prisma.explorer.upsert({
-      where: { name: 'Woopa 2' },
+    const axolotl2 = await prisma.axolotl.upsert({
+      where: { name: 'Woopa2' },
       update: {},
       create: {
         name: 'Woopa 2',
-				username: 'ajolonauta2',
-				mission: 'Java'
+				lang: 'java',
+				missionCommander: 'Swing',
+        enrollments: 2
       },
     });
 
-    const woopa3 = await prisma.explorer.upsert({
-      where: { name: 'Woopa 3' },
+    const axolotl3 = await prisma.axolotl.upsert({
+      where: { name: 'Woopa3' },
       update: {},
       create: {
         name: 'Woopa 3',
-				username: 'ajolonauta3',
-				mission: 'Node'
+				lang: 'java',
+				missionCommander: 'Swing',
+        enrollments: 2
       },
     });
-
-    console.log('Create 3 explorers');
+    
+    console.log('Create 3 axolotls');
   } catch(e) {
     console.error(e);
     process.exit(1);
